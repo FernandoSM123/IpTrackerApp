@@ -1,0 +1,160 @@
+
+.App{
+  height: 100%;
+  font-family: 'Rubik', sans-serif;
+}
+
+.MainContainer{
+  min-height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+/*
+****************
+***typografia***
+****************
+*/
+
+h1{font-size: clamp(2.4rem, 1.6667rem + 2.0370vw, 3.5rem);}
+
+h2{font-size: clamp(1.5rem, 1.3667rem + 0.3704vw, 1.7rem);}
+
+h3{font-size: clamp(2rem, 1.3667rem + 0.3704vw, 2.4rem);}
+
+input,
+.errorText{font-size: clamp(1.3rem, 1.1000rem + 0.5556vw, 1.6rem);}
+
+p{font-size: clamp(1.8rem, 1.6667rem + 0.3704vw, 2rem);}
+
+/* header */
+
+header{
+   background-image: url("images/pattern-bg.png");
+  background-size: cover;
+  display: flex;
+  justify-content: center;
+  padding-bottom: 3rem;
+}
+
+h1{
+  color: white;
+  text-align: center;
+  margin: 3rem 0;
+}
+
+.headerWrapper{
+  width: 80%;
+}
+
+.inputBox{
+  display: grid;
+  grid-template-columns: 80% min(20%,50px);
+  margin-bottom: 3rem;
+  justify-content: center;
+}
+
+.inputBox input{
+  padding: 2rem;
+  text-overflow: ellipsis;
+  border-radius: 15px 0 0 15px;
+  border:none;
+  color: var(--veryDarkGray);
+}
+
+.inputBox div{
+  background-color: black;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 0 15px 15px 0;
+}
+
+.inputBox div button{
+  background-color: black;
+  color: white;
+  border: none;
+}
+
+.inputBox div button:hover img{
+  cursor: pointer;
+  filter: invert(0.5);
+}
+
+.infoBox{
+  background-color: white;
+  border-radius: 15px;
+  padding: 3rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  text-align: center;
+  gap: 20px;
+}
+
+.errorBox{
+  background-color: white;
+  border-radius: 15px;
+  display: flex;
+  flex-direction: column;
+  padding: 3rem;
+  gap: 10px;
+}
+
+.infoBox div h2{
+  color: var(--darkGray);
+  margin-bottom: .5rem;
+}
+
+.infoBox div p{
+  color: var(--veryDarkGray);
+}
+
+@media only screen and (min-width: 900px) {
+  .infoBox{
+      flex-direction: row;
+      text-align: left;
+  }
+}
+
+/* section */
+
+section{
+  width: 100%;
+}
+
+.leaflet-container {
+  width: 100%;
+  height: 500px;
+}
+
+.noMapBox{
+  height: 400px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.noMapBox div{
+  background-color: gray;
+  width: 80%;
+  height: 200px;
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* footer */
+
+footer{
+  margin-top: auto;
+  padding: 3rem;
+  background-image: url("images/pattern-bg.png");
+  background-size: cover;
+}
+
+footer p{
+  text-align: center;
+  color: white;
+}

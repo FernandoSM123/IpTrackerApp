@@ -1,0 +1,19 @@
+:root {
+  --veryDarkGray: hsl(0, 0%, 17%);
+  --darkGray: hsl(0, 0%, 59%);
+
+}
+
+*{
+  margin: 0;
+  padding: 0;
+}
+
+html{
+  height: 100%;
+  font-size: 62.5%;
+}
+
+body, #root{
+  height: 100%;
+}
