@@ -1,8 +1,8 @@
 {
   "files": {
     "main.css": "/IpTrackerApp/static/css/main.2b38bad0.chunk.css",
-    "main.js": "/IpTrackerApp/static/js/main.8babc458.chunk.js",
-    "main.js.map": "/IpTrackerApp/static/js/main.8babc458.chunk.js.map",
+    "main.js": "/IpTrackerApp/static/js/main.2aa3a736.chunk.js",
+    "main.js.map": "/IpTrackerApp/static/js/main.2aa3a736.chunk.js.map",
     "runtime-main.js": "/IpTrackerApp/static/js/runtime-main.cb5a9b7b.js",
     "runtime-main.js.map": "/IpTrackerApp/static/js/runtime-main.cb5a9b7b.js.map",
     "static/css/2.a5998e63.chunk.css": "/IpTrackerApp/static/css/2.a5998e63.chunk.css",
@@ -23,6 +23,6 @@
     "static/css/2.a5998e63.chunk.css",
     "static/js/2.3209f751.chunk.js",
     "static/css/main.2b38bad0.chunk.css",
-    "static/js/main.8babc458.chunk.js"
+    "static/js/main.2aa3a736.chunk.js"
   ]
 }
