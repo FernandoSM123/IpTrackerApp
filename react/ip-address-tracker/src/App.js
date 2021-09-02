@@ -48,7 +48,8 @@ class App extends Component {
   }
 
   async getIP() {
-    var url = "http://ip-api.com/json/" + this.state.ipAddress;
+    //var url = "http://ip-api.com/json/" + this.state.ipAddress;
+    var url = "https://ipapi.co/" + this.state.ipAddress + "/json/";
 
     const response = await axios.get(url);
     window.setTimeout(() => this.setState({
@@ -59,8 +60,6 @@ class App extends Component {
       console.log(response);
       console.log("=== DATA NEEDED ===");
       console.log(this.state.ipData);
-      console.log("=== STATUS ===");
-      console.log(this.state.ipData.status);
     }), 3000);
   }
 
@@ -102,7 +101,7 @@ class App extends Component {
         </header>
         {/* section */}
         <section>
-         {this.renderMapInfo()}
+          {this.renderMapInfo()}
         </section>
 
         {/* footer */}
@@ -124,20 +123,27 @@ class App extends Component {
   }
 
   renderIpInfo() {
-    if (this.state.ipData.status === "success") {
+    if (this.state.ipData.error) {
+      return <div className="errorBox">
+        <h3>Error</h3>
+        <p className="errorText">Reason: {this.state.ipData.reason}</p>
+        <p className="errorText">IP: {this.state.ipData.ip}</p>
+      </div>
+    }
+    else {
       return <div className="infoBox">
         <div>
           <h2>ip address</h2>
-          <p>{this.state.ipData.query}</p>
+          <p>{this.state.ipData.ip}</p>
         </div>
 
         <div>
           <h2>location<br /></h2>
           <p>
-            {this.state.ipData.country},<br />
-            {this.state.ipData.regionName},<br />
+            {this.state.ipData.country_name},<br />
+            {this.state.ipData.region},<br />
             {this.state.ipData.city},<br />
-            {this.state.ipData.zip}
+            {this.state.ipData.postal}
           </p>
         </div>
 
@@ -148,39 +154,32 @@ class App extends Component {
 
         <div>
           <h2>isp</h2>
-          <p>{this.state.ipData.isp}</p>
+          <p>{this.state.ipData.org}</p>
         </div>
-      </div>
-    }
-    else {
-      return <div className="errorBox">
-        <h3>Error</h3>
-        <p className="errorText">Message: {this.state.ipData.message}</p>
-        <p className="errorText">Query: {this.state.ipData.query}</p>
       </div>
     }
   }
 
   renderMapInfo() {
-    if (this.state.ipData.status === "success") {
-      return <MapContainer center={[this.state.ipData.lat, this.state.ipData.lon]} zoom={13} scrollWheelZoom={false}>
-        <TileLayer
-          url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
-          attribution='&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
-        />
-        <Marker position={[this.state.ipData.lat, this.state.ipData.lon]} icon={icon}>
-          <Popup>
-            Current Location
-          </Popup>
-        </Marker>
-      </MapContainer>
-    }
-    else {
+    if (this.state.ipData.error) {
       return <div className="noMapBox">
         <div>
           <h3>No map available to display</h3>
         </div>
       </div>
+    }
+    else {
+      return <MapContainer center={[this.state.ipData.latitude, this.state.ipData.longitude]} zoom={13} scrollWheelZoom={false}>
+        <TileLayer
+          url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
+          attribution='&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
+        />
+        <Marker position={[this.state.ipData.latitude, this.state.ipData.longitude]} icon={icon}>
+          <Popup>
+            Current Location
+          </Popup>
+        </Marker>
+      </MapContainer>
     }
   }
 
